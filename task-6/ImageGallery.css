@@ -1,0 +1,49 @@
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    background-image: url('/public/bg.jpg'); /* Background image path */
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  /* Rest of your CSS styles remain unchanged */
+  .image {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fallback color for older browsers */
+    opacity: 0;
+    transition: opacity 0.2s;
+    border-radius: 10px;
+  }
+  
+  .image:hover::before {
+    opacity: 1;
+  }
+  
+  .image:hover {
+    transform: scale(1.05);
+  }
+  
